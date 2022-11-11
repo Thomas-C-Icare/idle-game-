@@ -1,7 +1,7 @@
 {
   "name": "idlegame",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "start": "nodemon server.js",
   "scripts": {
@@ -29,5 +29,15 @@
       "source": "src/main.js",
       "distDir": "static/js"
     }
-  }
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas-C-Icare/idle-game-.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Thomas-C-Icare/idle-game-/issues"
+  },
+  "homepage": "https://github.com/Thomas-C-Icare/idle-game-#readme"
 }

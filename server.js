@@ -126,3 +126,8 @@ process.on("unhandledRejection", (err) => {
   );
   winston.info("server is running...");
 })();
+
+
+app.listen(process.env.PORT, () => { 
+  console.log(`Server at http://localhost:${process.env.PORT}`);
+})
