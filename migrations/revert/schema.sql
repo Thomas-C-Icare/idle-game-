@@ -2,6 +2,6 @@
 
 BEGIN;
 
-drop table if exists "item_character", "fight", "character";
+DROP TABLE IF EXISTS "item_character", "fight", "character";
 
 COMMIT;
