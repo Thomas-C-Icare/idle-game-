@@ -1,0 +1,19 @@
+# MOCODO
+
+:
+EQUIPEMENT: casque, torse, pantalon, cape, bottes, arme
+inclus, 1N EQUIPEMENT, 1N OBJET
+:
+:
+
+PERSONNAGE: classe, pseudonyme, niveau, experience, statistique, progression
+possede, 1N PERSONNAGE,  11 EQUIPEMENT
+OBJET: nom, type, caracteristique, plateau
+:
+MONSTRE: nom, label, plateau, caracteristique, experience, butin
+
+a, 11 PERSONNAGE, 11 INVENTAIRE
+INVENTAIRE: emplacement, type
+avoir, 1N INVENTAIRE, 11 OBJET
+:
+:
