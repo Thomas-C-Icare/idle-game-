@@ -20,7 +20,7 @@ const attack = async () => {
   btn.className = originalClassName;
   btn.textContent = originalContent;
 };
-
+console.log('test');
 
 btn.onclick = attack;
 

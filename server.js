@@ -121,13 +121,14 @@ process.on("unhandledRejection", (err) => {
   await new Promise((resolve, reject) =>
     require("http")
       .Server(app)
-      .listen(Number(process.env.PORT) || 3000, resolve)
+      .listen(Number(process.env.PORT) || 3000, () => {
+        resolve();
+        console.log(`Server at http://localhost:${process.env.PORT}`);
+      })
       .on("error", reject)
   );
   winston.info("server is running...");
 })();
 
 
-app.listen(process.env.PORT, () => { 
-  console.log(`Server at http://localhost:${process.env.PORT}`);
-})
+
