@@ -2,7 +2,7 @@ const { Sequelize, DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../database");
 const { Fight, initFight } = require("./fight");
 const { monsters } = require("./monster");
-
+const { Equipement} = require("./equipement");
 // Option 1: Passing a connection URI
 class Character extends Model {}
 
@@ -53,6 +53,10 @@ Character.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    equipement_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    }
   },
   {
     // deuxième argument et deuxième objet de init : le lien avec la BDD
@@ -82,6 +86,7 @@ const initCharacter = async () => {
     stage: 1,
     totalMonsterKilled: 0,
     highestMonsterKilled: null,
+    equipementId: null,
   });
 
   await character.save();

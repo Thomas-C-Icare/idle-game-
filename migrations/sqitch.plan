@@ -2,3 +2,4 @@
 %project=idlegame
 
 schema 2022-11-11T16:57:50Z Thomas-C-Icare <thomas.campo08@gmail.com> # Setting up our table
+inventory 2022-11-19T09:44:21Z Seb <Seb@DESKTOP-BV1854J> # creation de la table inventaire dans la BDD
