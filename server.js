@@ -9,6 +9,7 @@ const session = require("express-session");
 const __DEV__ = process.env.NODE_ENV == "development";
 
 const { Character, initCharacter } = require("./models/character");
+const { Equipement, initEquipement } = require("./models/equipement");
 
 winston.add(
   new winston.transports.Console({
@@ -41,9 +42,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(async (req, res, next) => {
-  if (!req.session.characterId) {
+  if (!req.session.characterId && !req.session.equipementId) {
     const character = await initCharacter();
+    const equipement = await initEquipement();
     req.session.characterId = character.id;
+    req.session.equipementId = equipement.id;
   }
 
   next();

@@ -1,10 +1,15 @@
 const { Fight, initFight } = require("../models/fight");
 const { Character } = require("../models/character");
 const { monsters } = require("../models/monster");
+const { Equipement } = require("../models/equipement");
 
 module.exports = (app) => {
   app.post("/api/identity", async (req, res, next) => {
     try {
+      const equipement = await Equipement.findByPk(req.session.equipementId);
+      console.log("equipement ", equipement);
+      console.log("equipement_ID ",req.session.equipementId);
+      console.log("session", req.session);
       const character = await Character.findByPk(req.session.characterId);
 
       const currentFight = await Fight.findOne({
@@ -15,6 +20,7 @@ module.exports = (app) => {
       });
 
       res.json({
+        equipement: equipement,
         character: character,
         currentFight,
         monster: monsters.find((i) => i.id === currentFight.monsterId),
@@ -24,8 +30,9 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/api/attack", async (req, res, next) => {
+app.post("/api/attack", async (req, res, next) => {
     try {
+      
       const character = await Character.findByPk(req.session.characterId);
 
       const currentFight = await Fight.findOne({
@@ -59,4 +66,11 @@ module.exports = (app) => {
       next(err);
     }
   });
+app.post("api/equipement", async (req, res, next) => {
+  try {
+    
+  } catch (error) {
+    next(err);
+  }
+})
 };

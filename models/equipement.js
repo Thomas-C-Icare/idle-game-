@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../database");
-const { Character } = require("./character");
+const { Character, initCharacter } = require("./character");
+
 
 // Option 1: Passing a connection URI
 class Equipement extends Model {}
@@ -25,7 +26,7 @@ Equipement.init(
     weapon: {
       type: DataTypes.INTEGER,
     },
-    character_id: {
+    characterId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       }
@@ -46,4 +47,21 @@ Equipement.init(
   }
 );
 
-module.exports = { Equipement };
+const initEquipement = (character) => {
+  console.log('character', character)
+  const equipement = Equipement.build({
+    helmet: null,
+    chest: null,
+    legs: null,
+    gloves: null,
+    boots: null,
+    weapon: null,
+    characterId: character.id,
+  });
+
+  equipement.save();
+  
+  return equipement;
+}
+
+module.exports = { Equipement, initEquipement };

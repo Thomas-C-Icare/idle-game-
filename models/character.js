@@ -2,7 +2,7 @@ const { Sequelize, DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../database");
 const { Fight, initFight } = require("./fight");
 const { monsters } = require("./monster");
-const { Equipement} = require("./equipement");
+const { Equipement, initEquipement} = require("./equipement");
 // Option 1: Passing a connection URI
 class Character extends Model {}
 
@@ -92,6 +92,7 @@ const initCharacter = async () => {
   await character.save();
 
   await initFight(character);
+  await initEquipement(character);
 
   return character;
 };

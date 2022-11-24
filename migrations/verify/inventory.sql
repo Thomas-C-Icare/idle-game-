@@ -3,6 +3,10 @@
 BEGIN;
 
 SELECT "id",
+    "slot"
+FROM "inventory" WHERE false;
+
+SELECT "id",
     "helmet",
     "chest",
     "legs",

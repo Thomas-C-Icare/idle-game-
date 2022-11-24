@@ -14,6 +14,12 @@ CREATE TABLE "equipement"
     "character_id" INT NOT NULL REFERENCES "character" ("id")
 );
 
+CREATE TABLE "inventory"
+(
+    "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "slot" INTEGER
+);
+
 ALTER TABLE "character" 
 ADD COLUMN "equipement_id" INT REFERENCES "equipement" ("id");
 
