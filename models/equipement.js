@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../database");
-const { Character, initCharacter } = require("./character");
+
 
 
 // Option 1: Passing a connection URI
